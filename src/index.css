@@ -21,57 +21,46 @@
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
 }
 
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
-    --bg: #16171d;
+    --bg: #0f1117; /* أغمق وأفخم */
     --border: #2e303a;
     --code-bg: #1f2028;
     --accent: #c084fc;
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px,
-      rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
   }
 }
 
-/* 🔥 أهم تعديل هنا */
+/* 🔥 Full screen layout */
 #root {
   width: 100%;
-  max-width: 1600px;      /* عرض كبير احترافي */
-  margin: 0 auto;         /* في النص */
-  padding: 16px;          /* مسافة من الأطراف */
   min-height: 100vh;
 
   display: flex;
   flex-direction: column;
+
+  padding: 24px;
   box-sizing: border-box;
 }
 
-/* إزالة أي فراغات */
+/* إزالة الفراغات */
 body {
   margin: 0;
   padding: 0;
+  background: var(--bg);
 }
 
-/* تحسين الخطوط */
+/* تحسين شكل الصفحة */
 h1,
 h2 {
   font-family: var(--heading);
@@ -80,42 +69,45 @@ h2 {
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  font-size: 48px;
+  margin: 24px 0;
 }
 
 h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+  font-size: 22px;
+  margin-bottom: 8px;
 }
 
 p {
   margin: 0;
 }
 
+/* Code styling */
 code,
 .counter {
   font-family: var(--mono);
   display: inline-flex;
-  border-radius: 4px;
+  border-radius: 6px;
   color: var(--text-h);
 }
 
 code {
-  font-size: 15px;
-  line-height: 135%;
+  font-size: 14px;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+
+/* 🔥 تحسين شكل الكاردز */
+.card {
+  background: linear-gradient(145deg, #0f172a, #020617);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔥 Layout grid احترافي */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
 }
